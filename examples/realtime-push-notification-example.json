@@ -1,0 +1,23 @@
+{
+  "id": "push_01HZXA1K9S4K6G1T9R8VWXYZAB",
+  "channel": "user:usr_8c3a:push",
+  "event": "notification.send",
+  "data": {
+    "title": "Casey replied in #team-chat",
+    "body": "Pushed the fix to staging — anyone want to sanity check?",
+    "deepLink": "acme://chat/room-42/msg/01HZX9F2K7P1G3D8Q6N5GHIJKL",
+    "badge": 3,
+    "sound": "default",
+    "channels": ["fcm", "apns", "webpush"]
+  },
+  "encoding": "json",
+  "contentType": "application/json",
+  "publishedAt": "2026-05-22T14:05:31.900Z",
+  "clientId": "system-notifier",
+  "qualityOfService": "at-least-once",
+  "expiresAt": "2026-05-22T15:05:31.900Z",
+  "headers": {
+    "provider": "onesignal",
+    "campaign": "transactional"
+  }
+}

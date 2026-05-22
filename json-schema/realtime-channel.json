@@ -1,0 +1,195 @@
+{
+  "$id": "realtime-channel.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Realtime Channel",
+  "description": "A canonical representation of a realtime channel — the named topic, room, queue, or stage to which clients publish and from which they subscribe. Generalizes the channel concepts found in Ably, Pusher, PubNub, Socket.IO rooms/namespaces, MQTT topics, Phoenix Channels, GraphQL subscription topics, and LiveKit rooms.",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "protocol"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A globally unique identifier for the channel within a provider tenant — typically a UUID, an opaque token, or a provider-scoped string."
+    },
+    "name": {
+      "type": "string",
+      "description": "The human-readable channel name as it appears in client subscribe/publish calls (e.g., 'chat:room-42', 'orders/123/events', 'sensors/+/temperature').",
+      "maxLength": 1024
+    },
+    "namespace": {
+      "type": "string",
+      "description": "Optional namespace or scope grouping multiple channels (e.g., an Ably namespace prefix, a Socket.IO namespace, a tenant identifier)."
+    },
+    "protocol": {
+      "type": "string",
+      "description": "The underlying realtime protocol carrying messages on this channel.",
+      "enum": [
+        "websocket",
+        "sse",
+        "webrtc",
+        "mqtt",
+        "coap",
+        "grpc",
+        "graphql-ws",
+        "graphql-sse",
+        "webtransport",
+        "http-long-poll",
+        "proprietary"
+      ]
+    },
+    "provider": {
+      "type": "string",
+      "description": "Identifier for the realtime provider or platform hosting the channel (e.g., 'ably', 'pubnub', 'pusher', 'livekit', 'socket.io', 'mqtt-broker')."
+    },
+    "type": {
+      "type": "string",
+      "description": "The functional role of the channel.",
+      "enum": [
+        "pub-sub",
+        "chat",
+        "presence",
+        "signaling",
+        "data",
+        "media",
+        "notifications",
+        "broadcast",
+        "request-response"
+      ]
+    },
+    "mode": {
+      "type": "string",
+      "description": "Directionality of the channel.",
+      "enum": [
+        "bidirectional",
+        "server-to-client",
+        "client-to-server",
+        "peer-to-peer"
+      ]
+    },
+    "qualityOfService": {
+      "type": "string",
+      "description": "Delivery guarantee for messages on the channel, modeled on MQTT QoS plus the common at-least-once/exactly-once labels.",
+      "enum": [
+        "at-most-once",
+        "at-least-once",
+        "exactly-once"
+      ]
+    },
+    "ordering": {
+      "type": "string",
+      "description": "Per-channel ordering guarantee.",
+      "enum": [
+        "fifo",
+        "per-publisher",
+        "none"
+      ]
+    },
+    "persistence": {
+      "type": "object",
+      "description": "Whether and how messages published to this channel are retained for replay or history.",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "True if message history is retained."
+        },
+        "retention": {
+          "type": "string",
+          "description": "Retention period expressed as an ISO 8601 duration (e.g., 'PT24H', 'P7D')."
+        },
+        "maxMessages": {
+          "type": "integer",
+          "description": "Maximum number of messages retained, if bounded by count rather than time.",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "presence": {
+      "type": "object",
+      "description": "Presence/membership characteristics of the channel.",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "True if the channel tracks present members."
+        },
+        "memberCount": {
+          "type": "integer",
+          "description": "Current number of present members, when known.",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "access": {
+      "type": "object",
+      "description": "Access control posture for the channel.",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "description": "Visibility scope.",
+          "enum": [
+            "public",
+            "private",
+            "presence",
+            "encrypted"
+          ]
+        },
+        "authMethod": {
+          "type": "string",
+          "description": "How clients authenticate to subscribe/publish.",
+          "enum": [
+            "api-key",
+            "jwt",
+            "token-request",
+            "oauth2",
+            "mtls",
+            "anonymous"
+          ]
+        },
+        "capabilities": {
+          "type": "array",
+          "description": "Granted capabilities on this channel (e.g., 'subscribe', 'publish', 'presence', 'history').",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "encryption": {
+      "type": "object",
+      "description": "End-to-end or in-flight encryption applied to messages on the channel.",
+      "properties": {
+        "inFlight": {
+          "type": "boolean",
+          "description": "True when transport-level encryption (TLS/DTLS/SRTP) is in use."
+        },
+        "endToEnd": {
+          "type": "boolean",
+          "description": "True when payload-level encryption is applied above the transport."
+        },
+        "algorithm": {
+          "type": "string",
+          "description": "Encryption algorithm (e.g., 'AES-256-GCM')."
+        }
+      },
+      "additionalProperties": false
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the channel was created."
+    },
+    "labels": {
+      "type": "object",
+      "description": "Free-form key/value labels for tenancy, environment, application, etc.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

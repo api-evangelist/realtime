@@ -1,0 +1,135 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "realtime": "https://schema.apievangelist.com/realtime#",
+    "schema": "https://schema.org/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "hydra": "http://www.w3.org/ns/hydra/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "mqtt": "https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html#",
+    "ws": "https://datatracker.ietf.org/doc/html/rfc6455#",
+    "webrtc": "https://www.w3.org/TR/webrtc/#",
+    "sse": "https://html.spec.whatwg.org/multipage/server-sent-events.html#",
+
+    "Channel": {
+      "@id": "realtime:Channel",
+      "@type": "@id"
+    },
+    "MessageEnvelope": {
+      "@id": "realtime:MessageEnvelope",
+      "@type": "@id"
+    },
+    "Subscription": {
+      "@id": "realtime:Subscription",
+      "@type": "@id"
+    },
+    "Presence": {
+      "@id": "realtime:Presence",
+      "@type": "@id"
+    },
+    "Connection": {
+      "@id": "realtime:Connection",
+      "@type": "@id"
+    },
+    "Peer": {
+      "@id": "realtime:Peer",
+      "@type": "@id"
+    },
+    "Signal": {
+      "@id": "realtime:Signal",
+      "@type": "@id"
+    },
+    "IceCandidate": {
+      "@id": "realtime:IceCandidate",
+      "@type": "@id"
+    },
+    "TurnServer": {
+      "@id": "realtime:TurnServer",
+      "@type": "@id"
+    },
+    "Broker": {
+      "@id": "realtime:Broker",
+      "@type": "@id"
+    },
+    "PushNotification": {
+      "@id": "realtime:PushNotification",
+      "@type": "@id"
+    },
+
+    "id": "@id",
+    "type": "@type",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "createdAt": {
+      "@id": "dcterms:created",
+      "@type": "xsd:dateTime"
+    },
+    "publishedAt": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:dateTime"
+    },
+    "occurredAt": {
+      "@id": "schema:startDate",
+      "@type": "xsd:dateTime"
+    },
+
+    "channel": {
+      "@id": "realtime:channel",
+      "@type": "@id"
+    },
+    "namespace": "realtime:namespace",
+    "protocol": "realtime:protocol",
+    "provider": "realtime:provider",
+    "mode": "realtime:mode",
+    "qualityOfService": "realtime:qos",
+    "ordering": "realtime:ordering",
+    "persistence": "realtime:persistence",
+    "presence": "realtime:presenceEnabled",
+    "access": "realtime:access",
+    "encryption": "realtime:encryption",
+
+    "event": "realtime:event",
+    "data": "realtime:data",
+    "encoding": "realtime:encoding",
+    "contentType": "realtime:contentType",
+    "clientId": "realtime:clientId",
+    "connectionId": "realtime:connectionId",
+    "sequence": "realtime:sequence",
+    "correlationId": "realtime:correlationId",
+    "replyTo": "realtime:replyTo",
+    "expiresAt": {
+      "@id": "schema:expires",
+      "@type": "xsd:dateTime"
+    },
+
+    "filter": "realtime:filter",
+    "rewind": "realtime:rewind",
+    "subscribedAt": {
+      "@id": "realtime:subscribedAt",
+      "@type": "xsd:dateTime"
+    },
+
+    "action": "realtime:presenceAction",
+    "since": {
+      "@id": "realtime:since",
+      "@type": "xsd:dateTime"
+    },
+
+    "sdp": "realtime:sdp",
+    "candidate": "realtime:iceCandidate",
+    "iceServers": "realtime:iceServers",
+
+    "topic": "mqtt:topic",
+    "retain": "mqtt:retain",
+    "willMessage": "mqtt:willMessage",
+
+    "broadcast": "realtime:broadcast",
+    "fanout": "realtime:fanout",
+    "publish": "realtime:publish",
+    "subscribe": "realtime:subscribe"
+  }
+}

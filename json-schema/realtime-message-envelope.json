@@ -1,0 +1,136 @@
+{
+  "$id": "realtime-message-envelope.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Realtime Message Envelope",
+  "description": "A canonical envelope describing a single message flowing across a realtime channel — the framing that providers wrap around user payloads. This envelope generalizes the message shapes used by Ably, Pusher, PubNub, Socket.IO, MQTT 5 (with user properties), graphql-ws, and CloudEvents-over-WebSocket.",
+  "type": "object",
+  "required": [
+    "id",
+    "channel",
+    "data"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A unique identifier for the message — typically a ULID, UUID, or provider-assigned message ID. Used for deduplication and resume-from-checkpoint."
+    },
+    "channel": {
+      "type": "string",
+      "description": "Channel name to which the message was published."
+    },
+    "event": {
+      "type": "string",
+      "description": "Application-defined event name or message type (e.g., 'message.created', 'order.updated', 'user.joined'). Maps to Ably 'name', Pusher 'event', Socket.IO event names, and CloudEvents 'type'."
+    },
+    "data": {
+      "description": "The application payload. Often JSON, but may be a base64-encoded binary buffer, plain text, or a primitive value.",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": true
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "array",
+          "items": {}
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "encoding": {
+      "type": "string",
+      "description": "Encoding of the data field when not JSON.",
+      "enum": [
+        "json",
+        "utf-8",
+        "base64",
+        "protobuf",
+        "msgpack",
+        "cbor",
+        "binary"
+      ]
+    },
+    "contentType": {
+      "type": "string",
+      "description": "IANA media type of the payload (e.g., 'application/json', 'application/vnd.example.event+json')."
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time the message was accepted by the realtime provider."
+    },
+    "receivedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time the message was delivered to the subscribing client (set client-side)."
+    },
+    "clientId": {
+      "type": "string",
+      "description": "Identifier of the publishing client connection or user. Maps to Ably clientId, MQTT ClientID, Socket.IO socket.id."
+    },
+    "connectionId": {
+      "type": "string",
+      "description": "Provider-assigned identifier for the transport connection that originated the message."
+    },
+    "qualityOfService": {
+      "type": "string",
+      "description": "Delivery guarantee applied to this message.",
+      "enum": [
+        "at-most-once",
+        "at-least-once",
+        "exactly-once"
+      ]
+    },
+    "sequence": {
+      "type": "integer",
+      "description": "Per-channel monotonically increasing sequence number for ordering and gap detection.",
+      "minimum": 0
+    },
+    "correlationId": {
+      "type": "string",
+      "description": "Correlation identifier linking this message to a request, trace, or higher-level workflow."
+    },
+    "replyTo": {
+      "type": "string",
+      "description": "Channel name on which the publisher expects a response (request/response pattern over pub/sub)."
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time at which the message is considered stale and may be discarded by the broker or consumer."
+    },
+    "headers": {
+      "type": "object",
+      "description": "Provider-level metadata or user properties (modeled on MQTT 5 User Properties, AMQP application properties, and HTTP headers).",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "trace": {
+      "type": "object",
+      "description": "Distributed tracing context propagated with the message.",
+      "properties": {
+        "traceparent": {
+          "type": "string",
+          "description": "W3C traceparent header value."
+        },
+        "tracestate": {
+          "type": "string",
+          "description": "W3C tracestate header value."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,27 @@
+{
+  "id": "msg_01HZX9F2K7P1G3D8Q6N5GHIJKL",
+  "channel": "chat:room-42",
+  "event": "message.created",
+  "data": {
+    "userId": "usr_8c3a",
+    "displayName": "Casey",
+    "body": "Pushed the fix to staging — anyone want to sanity check?",
+    "mentions": ["usr_5d11"]
+  },
+  "encoding": "json",
+  "contentType": "application/json",
+  "publishedAt": "2026-05-22T14:05:31.482Z",
+  "clientId": "usr_8c3a",
+  "connectionId": "conn_9af2b1",
+  "qualityOfService": "at-least-once",
+  "sequence": 4317,
+  "correlationId": "trace_b71e",
+  "headers": {
+    "tenant": "acme",
+    "feature": "team-chat",
+    "schema-version": "1"
+  },
+  "trace": {
+    "traceparent": "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+  }
+}

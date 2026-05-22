@@ -1,0 +1,110 @@
+{
+  "$id": "realtime-subscription.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Realtime Subscription",
+  "description": "A subscription record describing a client's interest in messages from one or more realtime channels. Captures the subscription identifier, the channel pattern, delivery preferences, and filter expressions. Generalizes MQTT subscriptions, Socket.IO room joins, graphql-ws subscription operations, and Pusher channel subscribe events.",
+  "type": "object",
+  "required": [
+    "id",
+    "channel",
+    "clientId"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A unique identifier for this subscription, scoped to the client connection."
+    },
+    "channel": {
+      "type": "string",
+      "description": "The channel name or topic filter the client subscribes to. May contain wildcards depending on the protocol (MQTT '+', '#'; AMQP '*', '#')."
+    },
+    "clientId": {
+      "type": "string",
+      "description": "Identifier of the subscribing client or user."
+    },
+    "connectionId": {
+      "type": "string",
+      "description": "Provider-assigned identifier for the underlying transport connection."
+    },
+    "protocol": {
+      "type": "string",
+      "description": "Underlying realtime protocol carrying the subscription.",
+      "enum": [
+        "websocket",
+        "sse",
+        "webrtc",
+        "mqtt",
+        "coap",
+        "grpc",
+        "graphql-ws",
+        "graphql-sse",
+        "webtransport",
+        "http-long-poll",
+        "proprietary"
+      ]
+    },
+    "qualityOfService": {
+      "type": "string",
+      "description": "Requested delivery guarantee for messages matched by this subscription.",
+      "enum": [
+        "at-most-once",
+        "at-least-once",
+        "exactly-once"
+      ]
+    },
+    "filter": {
+      "type": "object",
+      "description": "Server-side filtering applied to messages before delivery.",
+      "properties": {
+        "expression": {
+          "type": "string",
+          "description": "Filter expression (e.g., SQL-like, JMESPath, CEL) interpreted by the provider."
+        },
+        "language": {
+          "type": "string",
+          "description": "Language identifier for the expression.",
+          "enum": [
+            "sql",
+            "jmespath",
+            "cel",
+            "jsonpath",
+            "mqtt-topic",
+            "custom"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "rewind": {
+      "type": "object",
+      "description": "Replay/rewind configuration for catching up on missed messages on subscribe.",
+      "properties": {
+        "from": {
+          "type": "string",
+          "description": "Resume position — a message ID, sequence number, or ISO 8601 timestamp."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum number of historical messages to deliver.",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "presence": {
+      "type": "boolean",
+      "description": "Whether the subscription should also receive presence events for the channel."
+    },
+    "subscribedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time the subscription was created."
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time at which the subscription is automatically cancelled, if any."
+    }
+  },
+  "additionalProperties": false
+}

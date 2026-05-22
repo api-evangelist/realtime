@@ -1,0 +1,34 @@
+{
+  "id": "chn_01HZX8M3K9P0G2D7Q5N4ABCDEF",
+  "name": "chat:room-42",
+  "namespace": "acme-app",
+  "protocol": "websocket",
+  "provider": "ably",
+  "type": "pub-sub",
+  "mode": "bidirectional",
+  "qualityOfService": "at-least-once",
+  "ordering": "fifo",
+  "persistence": {
+    "enabled": true,
+    "retention": "PT24H",
+    "maxMessages": 10000
+  },
+  "presence": {
+    "enabled": false
+  },
+  "access": {
+    "scope": "private",
+    "authMethod": "jwt",
+    "capabilities": ["subscribe", "publish", "history"]
+  },
+  "encryption": {
+    "inFlight": true,
+    "endToEnd": false
+  },
+  "createdAt": "2026-05-22T14:00:00Z",
+  "labels": {
+    "tenant": "acme",
+    "environment": "production",
+    "feature": "team-chat"
+  }
+}

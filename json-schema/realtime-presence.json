@@ -1,0 +1,53 @@
+{
+  "$id": "realtime-presence.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Realtime Presence",
+  "description": "A presence record describing a member's membership in a realtime channel — who is connected, with what client metadata, and from when. Generalizes the presence models in Ably, Pusher, PubNub, Phoenix Presence, and LiveKit room participants.",
+  "type": "object",
+  "required": [
+    "channel",
+    "clientId",
+    "action"
+  ],
+  "properties": {
+    "channel": {
+      "type": "string",
+      "description": "Channel on which the presence event occurred."
+    },
+    "clientId": {
+      "type": "string",
+      "description": "Identifier of the user or client whose presence is being reported."
+    },
+    "connectionId": {
+      "type": "string",
+      "description": "Provider-assigned identifier for the transport connection backing this presence."
+    },
+    "action": {
+      "type": "string",
+      "description": "The presence transition this record represents.",
+      "enum": [
+        "enter",
+        "leave",
+        "update",
+        "present",
+        "absent"
+      ]
+    },
+    "data": {
+      "type": "object",
+      "description": "Application-defined presence metadata associated with the member (e.g., display name, avatar URL, status, location).",
+      "additionalProperties": true
+    },
+    "since": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time at which the member entered the channel (only for 'present'/'update')."
+    },
+    "occurredAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time the presence event occurred."
+    }
+  },
+  "additionalProperties": false
+}

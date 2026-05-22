@@ -1,0 +1,18 @@
+{
+  "id": "sub_01HZX9G4L8Q2H4E9R7P6MNOPQR",
+  "channel": "orders.123.events",
+  "clientId": "usr_8c3a",
+  "connectionId": "conn_9af2b1",
+  "protocol": "graphql-ws",
+  "qualityOfService": "at-least-once",
+  "filter": {
+    "expression": "data.status in ['shipped', 'delivered']",
+    "language": "cel"
+  },
+  "rewind": {
+    "from": "2026-05-22T13:50:00Z",
+    "limit": 100
+  },
+  "presence": false,
+  "subscribedAt": "2026-05-22T14:05:00Z"
+}

@@ -1,0 +1,368 @@
+vocabulary: "1.0.0"
+
+info:
+  topic: Realtime
+  description: Vocabulary for the realtime API topic — channels, messages, subscriptions, presence, signaling, and push notifications across the major realtime protocols (WebSocket, SSE, WebRTC, MQTT, CoAP, gRPC streaming, GraphQL Subscriptions, WebTransport) and the hosted provider landscape.
+  created: '2026-05-22'
+  modified: '2026-05-22'
+
+# Core terms that recur across realtime providers and standards.
+concepts:
+  - term: Channel
+    definition: A named topic, room, queue, or stage to which publishers send messages and from which subscribers receive them. Cross-provider analog of MQTT topic, AMQP routing key, Socket.IO room, Ably channel, Pusher channel, PubNub channel, Phoenix channel, LiveKit room.
+    relatedTerms:
+      - Topic
+      - Room
+      - Namespace
+      - Stage
+
+  - term: Topic
+    definition: In MQTT and AMQP, a hierarchical channel name that subscribers can match using wildcards (MQTT '+' single-level, '#' multi-level).
+    relatedTerms:
+      - Channel
+      - Wildcard
+
+  - term: Namespace
+    definition: A scope grouping multiple channels under a tenant, application, or environment. Socket.IO uses namespaces as connection multiplexers; Ably uses namespace prefixes for capability-scoped tokens.
+    relatedTerms:
+      - Channel
+      - Tenant
+
+  - term: Subscription
+    definition: A client's declared interest in messages from one or more channels, possibly with filter expressions, rewind/replay positions, and a requested quality-of-service level.
+    relatedTerms:
+      - Channel
+      - Filter
+      - Rewind
+
+  - term: Publish
+    definition: The act of sending a message to a channel, where the realtime provider is responsible for fanout to all matching subscriptions.
+    relatedTerms:
+      - Broadcast
+      - Fanout
+
+  - term: Broadcast
+    definition: One-to-many delivery of a message from a single publisher to all subscribers of a channel, distinct from peer-to-peer or unicast delivery.
+    relatedTerms:
+      - Fanout
+      - Publish
+
+  - term: Fanout
+    definition: The provider-side amplification of a single published message to N subscribers; a primary cost driver in hosted realtime pricing.
+    relatedTerms:
+      - Broadcast
+
+  - term: Presence
+    definition: A first-class realtime feature reporting which clients are currently subscribed to (or "in") a channel, with optional per-member metadata. Supported natively by Ably, Pusher, PubNub, Phoenix Presence, and LiveKit participants.
+    relatedTerms:
+      - Member
+      - Enter
+      - Leave
+
+  - term: Connection
+    definition: The persistent transport (WebSocket, WebRTC PeerConnection, MQTT session, SSE stream, gRPC stream) between a client and a realtime provider.
+    relatedTerms:
+      - ClientID
+      - Session
+
+  - term: Peer
+    definition: In WebRTC, one of two endpoints in a direct peer-to-peer connection. Peers exchange SDP offers/answers via a signaling channel and ICE candidates to establish media or data channels.
+    relatedTerms:
+      - PeerConnection
+      - DataChannel
+
+  - term: Signaling
+    definition: Out-of-band exchange of session metadata (SDP, ICE candidates, capabilities) required to establish a WebRTC PeerConnection. Signaling is not standardized — implementations use WebSocket, SSE, or HTTP.
+    relatedTerms:
+      - SDP
+      - ICE
+      - Offer
+      - Answer
+
+  - term: ICE
+    definition: Interactive Connectivity Establishment (RFC 8445) — the framework WebRTC uses to discover and prioritize network paths between peers, combining STUN, TURN, and host candidates.
+    relatedTerms:
+      - STUN
+      - TURN
+      - Candidate
+
+  - term: STUN
+    definition: Session Traversal Utilities for NAT (RFC 8489) — a protocol that lets a client discover its public IP/port as observed by a STUN server, used during ICE.
+    relatedTerms:
+      - ICE
+      - NAT
+
+  - term: TURN
+    definition: Traversal Using Relays around NAT (RFC 8656) — a relay service that proxies media between peers when direct P2P fails, sustaining the realtime path through restrictive networks.
+    relatedTerms:
+      - ICE
+      - Relay
+
+  - term: SDP
+    definition: Session Description Protocol (RFC 8866) — the text format used to describe multimedia sessions, exchanged as offers and answers during WebRTC negotiation.
+    relatedTerms:
+      - Offer
+      - Answer
+
+  - term: DataChannel
+    definition: A bidirectional, message-oriented WebRTC channel for arbitrary application data, carried over SCTP-over-DTLS. Supports ordered/unordered and reliable/unreliable delivery.
+    relatedTerms:
+      - Peer
+      - WebRTC
+
+  - term: PubSub
+    definition: The publish/subscribe messaging pattern: publishers send to named channels without knowing subscribers; subscribers receive from channels without knowing publishers. Foundational to nearly all realtime providers.
+    relatedTerms:
+      - Channel
+      - Publish
+      - Subscribe
+
+  - term: QualityOfService
+    definition: Per-message delivery guarantee. MQTT defines QoS 0/1/2 (at-most-once / at-least-once / exactly-once); other systems map to similar tiers.
+    relatedTerms:
+      - AtMostOnce
+      - AtLeastOnce
+      - ExactlyOnce
+
+  - term: Retention
+    definition: Whether and for how long published messages are kept by the broker for late subscribers, rewind, or audit.
+    relatedTerms:
+      - History
+      - Rewind
+
+  - term: Rewind
+    definition: A subscribe-time option that asks the provider to replay historical messages from a checkpoint (message ID, sequence, or timestamp) before delivering new ones.
+    relatedTerms:
+      - Replay
+      - Checkpoint
+
+  - term: ClientID
+    definition: Identifier of the client connection or user attached to a realtime session. Maps to MQTT ClientID, Ably clientId, Socket.IO socket.id, Pusher socket_id.
+    relatedTerms:
+      - Connection
+      - User
+
+  - term: Token
+    definition: A short-lived credential (typically JWT) issued by the application server, scoped to specific channels and capabilities, presented by the client when connecting.
+    relatedTerms:
+      - JWT
+      - Capability
+
+  - term: Capability
+    definition: A grant attached to a token specifying which channels the bearer may subscribe to, publish to, request presence on, or rewind. Ably and PubNub both use this model.
+    relatedTerms:
+      - Token
+      - AccessControl
+
+  - term: Webhook
+    definition: An HTTP callback delivered from a realtime provider to an application backend in response to channel events, presence changes, or message metadata — bridging realtime to request/response.
+    relatedTerms:
+      - Event
+      - Callback
+
+  - term: PushNotification
+    definition: A platform-delivered message displayed to a user device when the application is not in the foreground. Routed via APNs (Apple), FCM (Android/Chrome/Web), or Web Push (browsers).
+    relatedTerms:
+      - APNs
+      - FCM
+      - WebPush
+
+# Protocols carrying realtime traffic.
+protocols:
+  - id: websocket
+    name: WebSocket
+    spec: https://datatracker.ietf.org/doc/html/rfc6455
+    transport: TCP
+    mode: bidirectional
+    notes: Carrier for nearly all hosted realtime providers' web SDKs.
+
+  - id: sse
+    name: Server-Sent Events
+    spec: https://html.spec.whatwg.org/multipage/server-sent-events.html
+    transport: HTTP
+    mode: server-to-client
+    notes: Resurgent as the carrier for LLM token streams.
+
+  - id: webrtc
+    name: WebRTC
+    spec: https://www.w3.org/TR/webrtc/
+    transport: UDP/SRTP/SCTP
+    mode: peer-to-peer
+    notes: Powers video/voice and data-channel use cases.
+
+  - id: mqtt
+    name: MQTT
+    spec: https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html
+    transport: TCP
+    mode: bidirectional
+    notes: Dominant in IoT; supported by AWS IoT, Azure IoT Hub, HiveMQ, EMQX.
+
+  - id: coap
+    name: CoAP
+    spec: https://datatracker.ietf.org/doc/html/rfc7252
+    transport: UDP
+    mode: server-to-client
+    notes: Constrained-device REST; Observe (RFC 7641) provides realtime.
+
+  - id: grpc-streaming
+    name: gRPC Streaming
+    spec: https://grpc.io/docs/what-is-grpc/core-concepts/
+    transport: HTTP/2
+    mode: bidirectional
+    notes: Server, client, and bidi streaming over HTTP/2; gRPC-Web for browsers.
+
+  - id: graphql-subscriptions
+    name: GraphQL Subscriptions
+    spec: https://spec.graphql.org/October2021/#sec-Subscription
+    transport: WebSocket or SSE
+    mode: server-to-client
+    notes: Carried via graphql-ws (WebSocket) or graphql-sse (SSE).
+
+  - id: webtransport
+    name: WebTransport
+    spec: https://www.w3.org/TR/webtransport/
+    transport: HTTP/3/QUIC
+    mode: bidirectional
+    notes: Modern WebSocket successor with streams and datagrams.
+
+# Hosted realtime providers in the topic catalog.
+providers:
+  - id: ably
+    name: Ably
+    category: pubsub
+    protocols: [websocket, mqtt, sse, http]
+
+  - id: pubnub
+    name: PubNub
+    category: pubsub
+    protocols: [websocket, http]
+
+  - id: pusher
+    name: Pusher
+    category: pubsub
+    protocols: [websocket, http]
+
+  - id: livekit
+    name: LiveKit
+    category: webrtc
+    protocols: [webrtc, sip]
+
+  - id: daily
+    name: Daily
+    category: webrtc
+    protocols: [webrtc]
+
+  - id: agora
+    name: Agora.io
+    category: webrtc
+    protocols: [webrtc, proprietary]
+
+  - id: twilio-video
+    name: Twilio Video / Live
+    category: webrtc
+    protocols: [webrtc, http]
+
+  - id: vonage-video
+    name: Vonage Video API
+    category: webrtc
+    protocols: [webrtc]
+
+  - id: amazon-ivs
+    name: Amazon IVS
+    category: video
+    protocols: [webrtc, hls]
+
+  - id: cloudflare-realtime
+    name: Cloudflare Realtime
+    category: webrtc
+    protocols: [webrtc, http]
+
+  - id: socket-io
+    name: Socket.IO
+    category: framework
+    protocols: [websocket, http-long-poll]
+
+  - id: phoenix-channels
+    name: Phoenix Channels
+    category: framework
+    protocols: [websocket, http-long-poll]
+
+  - id: centrifugo
+    name: Centrifugo
+    category: framework
+    protocols: [websocket, sse, http-streaming, webtransport]
+
+  - id: onesignal
+    name: OneSignal
+    category: push
+    protocols: [apns, fcm, webpush, http, sms, email]
+
+  - id: firebase-cloud-messaging
+    name: Firebase Cloud Messaging
+    category: push
+    protocols: [http, fcm-connection]
+
+  - id: apple-push-notification-service
+    name: Apple Push Notification Service
+    category: push
+    protocols: [http2]
+
+  - id: web-push
+    name: Web Push
+    category: push
+    protocols: [http]
+
+  - id: pushwoosh
+    name: Pushwoosh
+    category: push
+    protocols: [apns, fcm, webpush, http, sms, email]
+
+# Common actions across the realtime surface area.
+actions:
+  - name: subscribe
+    description: Express interest in messages on a channel or topic pattern.
+  - name: unsubscribe
+    description: Cancel a prior subscription.
+  - name: publish
+    description: Send a message to a channel.
+  - name: broadcast
+    description: Provider-side fanout of a published message to all subscribers.
+  - name: connect
+    description: Open the persistent transport connection to the realtime provider.
+  - name: disconnect
+    description: Tear down the transport connection.
+  - name: enter
+    description: Record presence membership in a channel.
+  - name: leave
+    description: Withdraw presence membership.
+  - name: history
+    description: Fetch retained messages for a channel.
+  - name: rewind
+    description: Resume subscription from a prior checkpoint.
+  - name: signal
+    description: Exchange WebRTC SDP/ICE between peers.
+  - name: offer
+    description: Initiate a WebRTC PeerConnection with an SDP offer.
+  - name: answer
+    description: Respond to a WebRTC SDP offer.
+  - name: addCandidate
+    description: Submit an ICE candidate during negotiation.
+  - name: notify
+    description: Deliver a push notification to a registered device.
+
+tags:
+  - Realtime
+  - Pub Sub
+  - WebSocket
+  - WebRTC
+  - Server-Sent Events
+  - MQTT
+  - CoAP
+  - gRPC Streaming
+  - GraphQL Subscriptions
+  - WebTransport
+  - Push Notifications
+  - Presence
+  - Signaling
+  - Channels
+  - Topic

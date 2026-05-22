@@ -1,0 +1,32 @@
+{
+  "id": "topic_sensors_floor3_temp",
+  "name": "sensors/floor-3/+/temperature",
+  "namespace": "iot-ingestion",
+  "protocol": "mqtt",
+  "provider": "aws-iot-core",
+  "type": "pub-sub",
+  "mode": "bidirectional",
+  "qualityOfService": "at-least-once",
+  "ordering": "per-publisher",
+  "persistence": {
+    "enabled": true,
+    "retention": "P7D"
+  },
+  "presence": {
+    "enabled": false
+  },
+  "access": {
+    "scope": "private",
+    "authMethod": "mtls",
+    "capabilities": ["subscribe", "publish"]
+  },
+  "encryption": {
+    "inFlight": true,
+    "endToEnd": false
+  },
+  "createdAt": "2026-01-15T08:30:00Z",
+  "labels": {
+    "fleet": "floor-3",
+    "device-class": "thermal-sensor"
+  }
+}

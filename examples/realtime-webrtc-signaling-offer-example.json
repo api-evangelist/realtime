@@ -1,0 +1,28 @@
+{
+  "id": "msg_signal_01HZXA0H7R3J5F0S8Q7STUVWXY",
+  "channel": "signaling:room_meeting_q2_review",
+  "event": "webrtc.offer",
+  "data": {
+    "from": "peer-host-dana",
+    "to": "peer-guest-casey",
+    "type": "offer",
+    "sdp": "v=0\r\no=- 4611732205433480234 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0 1\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 103\r\n...",
+    "iceServers": [
+      {
+        "urls": ["stun:stun.l.google.com:19302"]
+      },
+      {
+        "urls": ["turn:turn.acme.example:3478?transport=udp"],
+        "username": "ephemeral",
+        "credential": "redacted"
+      }
+    ]
+  },
+  "encoding": "json",
+  "contentType": "application/json",
+  "publishedAt": "2026-05-22T15:00:08.012Z",
+  "clientId": "peer-host-dana",
+  "qualityOfService": "at-least-once",
+  "sequence": 1,
+  "replyTo": "signaling:room_meeting_q2_review"
+}

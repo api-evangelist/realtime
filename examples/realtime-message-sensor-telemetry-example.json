@@ -1,0 +1,23 @@
+{
+  "id": "msg_dev_a7c1_1716391200_001",
+  "channel": "sensors/floor-3/dev-a7c1/temperature",
+  "event": "telemetry.reading",
+  "data": {
+    "deviceId": "dev-a7c1",
+    "metric": "temperature",
+    "value": 21.4,
+    "unit": "C",
+    "battery": 0.83,
+    "readAt": "2026-05-22T14:00:00Z"
+  },
+  "encoding": "json",
+  "contentType": "application/json",
+  "publishedAt": "2026-05-22T14:00:01.120Z",
+  "clientId": "dev-a7c1",
+  "qualityOfService": "at-least-once",
+  "sequence": 19874,
+  "headers": {
+    "schema": "telemetry-reading/v1",
+    "site": "warehouse-east"
+  }
+}
