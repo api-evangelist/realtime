@@ -8,521 +8,523 @@ modified: '2026-05-22'
 specificationVersion: '0.19'
 type: Index
 tags:
+- Realtime
+- WebSocket
+- WebRTC
+- Server-Sent Events
+- MQTT
+- Push Notifications
+- Pub Sub
+- Presence
+- Signaling
+- Topic
+apis:
+- aid: realtime:websocket
+  name: WebSocket
+  description: A full-duplex communication protocol over a single TCP connection, standardized by the IETF as RFC 6455 and defined in the WHATWG WebSocket API on the client side. WebSocket is the most widely deployed realtime protocol on the web — used for chat, multiplayer, live dashboards, collaboration, and as the carrier for higher-level realtime SDKs from Ably, Pusher, PubNub, Phoenix Channels, Socket.IO, and others.
+  humanURL: https://datatracker.ietf.org/doc/html/rfc6455
+  baseURL: wss://
+  tags:
+  - WebSocket
+  - Protocol
+  - Bidirectional
+  - Standard
+  properties:
+  - type: Specification
+    url: https://datatracker.ietf.org/doc/html/rfc6455
+  - type: Documentation
+    url: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
+  - type: ClientAPI
+    url: https://websockets.spec.whatwg.org/
+
+- aid: realtime:server-sent-events
+  name: Server-Sent Events (SSE)
+  description: A unidirectional server-to-client streaming protocol over HTTP, defined by the WHATWG HTML Living Standard. SSE is simpler than WebSocket — it reuses HTTP and supports automatic reconnection — but is one-way only. It has seen a resurgence as the carrier for LLM token streams from OpenAI, Anthropic, and other AI APIs.
+  humanURL: https://html.spec.whatwg.org/multipage/server-sent-events.html
+  baseURL: https://
+  tags:
+  - SSE
+  - Server-Sent Events
+  - Protocol
+  - Unidirectional
+  - Standard
+  properties:
+  - type: Specification
+    url: https://html.spec.whatwg.org/multipage/server-sent-events.html
+  - type: Documentation
+    url: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events
+
+- aid: realtime:webrtc
+  name: WebRTC
+  description: A peer-to-peer realtime communication framework for audio, video, and arbitrary data channels, standardized by the W3C and IETF. WebRTC defines an SDP-based offer/answer signaling model, ICE/STUN/TURN for NAT traversal, SRTP for media, and SCTP-based data channels. It powers video conferencing (LiveKit, Daily, Agora, Twilio Video, Zoom Web), live audio rooms, and low-latency game streaming.
+  humanURL: https://webrtc.org/
+  tags:
+  - WebRTC
+  - Peer-to-Peer
+  - Video
+  - Audio
+  - Data Channel
+  - Protocol
+  - Standard
+  properties:
+  - type: Specification
+    url: https://www.w3.org/TR/webrtc/
+  - type: Documentation
+    url: https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API
+  - type: Portal
+    url: https://webrtc.org/
+
+- aid: realtime:mqtt
+  name: MQTT
+  description: A lightweight publish/subscribe protocol standardized by OASIS, designed for constrained devices and low-bandwidth networks. MQTT is the dominant realtime protocol in IoT, used by AWS IoT Core, Azure IoT Hub, Google Cloud IoT, HiveMQ, EMQX, and Mosquitto. MQTT v5 adds shared subscriptions, message expiry, reason codes, and topic aliases.
+  humanURL: https://mqtt.org/
+  tags:
+  - MQTT
+  - IoT
+  - Pub Sub
+  - Protocol
+  - Standard
+  properties:
+  - type: Specification
+    url: https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html
+  - type: Portal
+    url: https://mqtt.org/
+
+- aid: realtime:coap
+  name: CoAP
+  description: The Constrained Application Protocol, defined in IETF RFC 7252, is a RESTful protocol for constrained devices over UDP, with an Observe extension (RFC 7641) that provides realtime resource notification. CoAP is used in industrial IoT and LPWAN deployments where MQTT's TCP overhead is undesirable.
+  humanURL: https://datatracker.ietf.org/doc/html/rfc7252
+  tags:
+  - CoAP
+  - IoT
+  - Constrained Devices
+  - Protocol
+  - Standard
+  properties:
+  - type: Specification
+    url: https://datatracker.ietf.org/doc/html/rfc7252
+  - type: Specification
+    url: https://datatracker.ietf.org/doc/html/rfc7641
+
+- aid: realtime:grpc-streaming
+  name: gRPC Streaming
+  description: gRPC supports four call patterns — unary, server streaming, client streaming, and bidirectional streaming — all carried over HTTP/2. gRPC streams are widely used for internal service-to-service realtime communication, with gRPC-Web bridging to browsers and Connect protocol providing buf.build's HTTP/JSON-friendly alternative.
+  humanURL: https://grpc.io/docs/what-is-grpc/core-concepts/
+  tags:
+  - gRPC
+  - Streaming
+  - Bidirectional
+  - HTTP/2
+  - Protocol
+  properties:
+  - type: Documentation
+    url: https://grpc.io/docs/what-is-grpc/core-concepts/
+  - type: Specification
+    url: https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md
+
+- aid: realtime:graphql-subscriptions
+  name: GraphQL Subscriptions
+  description: A GraphQL operation type that delivers realtime updates to clients, typically carried over WebSocket using the graphql-ws or legacy graphql-transport-ws protocol, or over SSE using the GraphQL-SSE protocol. Subscriptions are supported by Apollo, Hasura, AWS AppSync, and most production GraphQL servers.
+  humanURL: https://spec.graphql.org/October2021/#sec-Subscription
+  tags:
+  - GraphQL
+  - Subscriptions
   - Realtime
   - WebSocket
-  - WebRTC
-  - Server-Sent Events
-  - MQTT
-  - Push Notifications
-  - Pub Sub
-  - Presence
-  - Signaling
-  - Topic
-apis:
-  - aid: realtime:websocket
-    name: WebSocket
-    description: A full-duplex communication protocol over a single TCP connection, standardized by the IETF as RFC 6455 and defined in the WHATWG WebSocket API on the client side. WebSocket is the most widely deployed realtime protocol on the web — used for chat, multiplayer, live dashboards, collaboration, and as the carrier for higher-level realtime SDKs from Ably, Pusher, PubNub, Phoenix Channels, Socket.IO, and others.
-    humanURL: https://datatracker.ietf.org/doc/html/rfc6455
-    baseURL: wss://
-    tags:
-      - WebSocket
-      - Protocol
-      - Bidirectional
-      - Standard
-    properties:
-      - type: Specification
-        url: https://datatracker.ietf.org/doc/html/rfc6455
-      - type: Documentation
-        url: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
-      - type: ClientAPI
-        url: https://websockets.spec.whatwg.org/
+  properties:
+  - type: Specification
+    url: https://spec.graphql.org/October2021/#sec-Subscription
+  - type: Documentation
+    url: https://the-guild.dev/graphql/ws
 
-  - aid: realtime:server-sent-events
-    name: Server-Sent Events (SSE)
-    description: A unidirectional server-to-client streaming protocol over HTTP, defined by the WHATWG HTML Living Standard. SSE is simpler than WebSocket — it reuses HTTP and supports automatic reconnection — but is one-way only. It has seen a resurgence as the carrier for LLM token streams from OpenAI, Anthropic, and other AI APIs.
-    humanURL: https://html.spec.whatwg.org/multipage/server-sent-events.html
-    baseURL: https://
-    tags:
-      - SSE
-      - Server-Sent Events
-      - Protocol
-      - Unidirectional
-      - Standard
-    properties:
-      - type: Specification
-        url: https://html.spec.whatwg.org/multipage/server-sent-events.html
-      - type: Documentation
-        url: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events
-
-  - aid: realtime:webrtc
-    name: WebRTC
-    description: A peer-to-peer realtime communication framework for audio, video, and arbitrary data channels, standardized by the W3C and IETF. WebRTC defines an SDP-based offer/answer signaling model, ICE/STUN/TURN for NAT traversal, SRTP for media, and SCTP-based data channels. It powers video conferencing (LiveKit, Daily, Agora, Twilio Video, Zoom Web), live audio rooms, and low-latency game streaming.
-    humanURL: https://webrtc.org/
-    tags:
-      - WebRTC
-      - Peer-to-Peer
-      - Video
-      - Audio
-      - Data Channel
-      - Protocol
-      - Standard
-    properties:
-      - type: Specification
-        url: https://www.w3.org/TR/webrtc/
-      - type: Documentation
-        url: https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API
-      - type: Portal
-        url: https://webrtc.org/
-
-  - aid: realtime:mqtt
-    name: MQTT
-    description: A lightweight publish/subscribe protocol standardized by OASIS, designed for constrained devices and low-bandwidth networks. MQTT is the dominant realtime protocol in IoT, used by AWS IoT Core, Azure IoT Hub, Google Cloud IoT, HiveMQ, EMQX, and Mosquitto. MQTT v5 adds shared subscriptions, message expiry, reason codes, and topic aliases.
-    humanURL: https://mqtt.org/
-    tags:
-      - MQTT
-      - IoT
-      - Pub Sub
-      - Protocol
-      - Standard
-    properties:
-      - type: Specification
-        url: https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html
-      - type: Portal
-        url: https://mqtt.org/
-
-  - aid: realtime:coap
-    name: CoAP
-    description: The Constrained Application Protocol, defined in IETF RFC 7252, is a RESTful protocol for constrained devices over UDP, with an Observe extension (RFC 7641) that provides realtime resource notification. CoAP is used in industrial IoT and LPWAN deployments where MQTT's TCP overhead is undesirable.
-    humanURL: https://datatracker.ietf.org/doc/html/rfc7252
-    tags:
-      - CoAP
-      - IoT
-      - Constrained Devices
-      - Protocol
-      - Standard
-    properties:
-      - type: Specification
-        url: https://datatracker.ietf.org/doc/html/rfc7252
-      - type: Specification
-        url: https://datatracker.ietf.org/doc/html/rfc7641
-
-  - aid: realtime:grpc-streaming
-    name: gRPC Streaming
-    description: gRPC supports four call patterns — unary, server streaming, client streaming, and bidirectional streaming — all carried over HTTP/2. gRPC streams are widely used for internal service-to-service realtime communication, with gRPC-Web bridging to browsers and Connect protocol providing buf.build's HTTP/JSON-friendly alternative.
-    humanURL: https://grpc.io/docs/what-is-grpc/core-concepts/
-    tags:
-      - gRPC
-      - Streaming
-      - Bidirectional
-      - HTTP/2
-      - Protocol
-    properties:
-      - type: Documentation
-        url: https://grpc.io/docs/what-is-grpc/core-concepts/
-      - type: Specification
-        url: https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md
-
-  - aid: realtime:graphql-subscriptions
-    name: GraphQL Subscriptions
-    description: A GraphQL operation type that delivers realtime updates to clients, typically carried over WebSocket using the graphql-ws or legacy graphql-transport-ws protocol, or over SSE using the GraphQL-SSE protocol. Subscriptions are supported by Apollo, Hasura, AWS AppSync, and most production GraphQL servers.
-    humanURL: https://spec.graphql.org/October2021/#sec-Subscription
-    tags:
-      - GraphQL
-      - Subscriptions
-      - Realtime
-      - WebSocket
-    properties:
-      - type: Specification
-        url: https://spec.graphql.org/October2021/#sec-Subscription
-      - type: Documentation
-        url: https://the-guild.dev/graphql/ws
-
-  - aid: realtime:webtransport
-    name: WebTransport
-    description: A modern web API built on HTTP/3 and QUIC providing bidirectional and unidirectional streams plus unreliable datagrams to browsers. Designed as a higher-performance successor to WebSocket for streaming workloads, supported in Chromium-based browsers and progressively adopted in production.
-    humanURL: https://www.w3.org/TR/webtransport/
-    tags:
-      - WebTransport
-      - HTTP/3
-      - QUIC
-      - Browser
-      - Standard
-    properties:
-      - type: Specification
-        url: https://www.w3.org/TR/webtransport/
-      - type: Documentation
-        url: https://developer.mozilla.org/en-US/docs/Web/API/WebTransport_API
+  - url: graphql/realtime-graphql.md
+    type: GraphQL
+- aid: realtime:webtransport
+  name: WebTransport
+  description: A modern web API built on HTTP/3 and QUIC providing bidirectional and unidirectional streams plus unreliable datagrams to browsers. Designed as a higher-performance successor to WebSocket for streaming workloads, supported in Chromium-based browsers and progressively adopted in production.
+  humanURL: https://www.w3.org/TR/webtransport/
+  tags:
+  - WebTransport
+  - HTTP/3
+  - QUIC
+  - Browser
+  - Standard
+  properties:
+  - type: Specification
+    url: https://www.w3.org/TR/webtransport/
+  - type: Documentation
+    url: https://developer.mozilla.org/en-US/docs/Web/API/WebTransport_API
 
   # Hosted realtime providers
-  - aid: realtime:ably
-    name: Ably
-    description: A hosted realtime platform offering Pub/Sub Channels, Chat, Spaces, LiveObjects, LiveSync, and AI Transport — built on a global edge network with low-latency multiprotocol fanout (WebSocket, MQTT, SSE, HTTP). Anchored by the documentation framing "Low-level APIs to build any realtime experience" for the Pub/Sub product.
-    humanURL: https://ably.com/
-    tags:
-      - Realtime
-      - Pub Sub
-      - Channels
-      - Chat
-      - Provider
-    properties:
-      - type: Portal
-        url: https://ably.com/
-      - type: Documentation
-        url: https://ably.com/docs
-      - type: APIReference
-        url: https://ably.com/docs/api
-      - type: Pricing
-        url: https://ably.com/pricing
-      - type: Blog
-        url: https://ably.com/blog
-      - type: GitHubOrganization
-        url: https://github.com/ably
-      - type: StatusPage
-        url: https://status.ably.com/
+- aid: realtime:ably
+  name: Ably
+  description: A hosted realtime platform offering Pub/Sub Channels, Chat, Spaces, LiveObjects, LiveSync, and AI Transport — built on a global edge network with low-latency multiprotocol fanout (WebSocket, MQTT, SSE, HTTP). Anchored by the documentation framing "Low-level APIs to build any realtime experience" for the Pub/Sub product.
+  humanURL: https://ably.com/
+  tags:
+  - Realtime
+  - Pub Sub
+  - Channels
+  - Chat
+  - Provider
+  properties:
+  - type: Portal
+    url: https://ably.com/
+  - type: Documentation
+    url: https://ably.com/docs
+  - type: APIReference
+    url: https://ably.com/docs/api
+  - type: Pricing
+    url: https://ably.com/pricing
+  - type: Blog
+    url: https://ably.com/blog
+  - type: GitHubOrganization
+    url: https://github.com/ably
+  - type: StatusPage
+    url: https://status.ably.com/
 
-  - aid: realtime:pubnub
-    name: PubNub
-    description: A realtime platform offering Pub/Sub messaging, Presence detection, Chat SDKs, Functions (serverless), Events & Actions, Insights analytics, BizOps Workspace, Illuminate, and an Admin API. PubNub markets "Send a message via API and have it delivered anywhere in less than 30 ms" as its latency guarantee.
-    humanURL: https://www.pubnub.com/
-    tags:
-      - Realtime
-      - Pub Sub
-      - Presence
-      - Chat
-      - Provider
-    properties:
-      - type: Portal
-        url: https://www.pubnub.com/
-      - type: Documentation
-        url: https://www.pubnub.com/docs/
-      - type: Pricing
-        url: https://www.pubnub.com/pricing/
-      - type: Blog
-        url: https://www.pubnub.com/blog/
-      - type: GitHubOrganization
-        url: https://github.com/pubnub
-      - type: StatusPage
-        url: https://status.pubnub.com/
+- aid: realtime:pubnub
+  name: PubNub
+  description: A realtime platform offering Pub/Sub messaging, Presence detection, Chat SDKs, Functions (serverless), Events & Actions, Insights analytics, BizOps Workspace, Illuminate, and an Admin API. PubNub markets "Send a message via API and have it delivered anywhere in less than 30 ms" as its latency guarantee.
+  humanURL: https://www.pubnub.com/
+  tags:
+  - Realtime
+  - Pub Sub
+  - Presence
+  - Chat
+  - Provider
+  properties:
+  - type: Portal
+    url: https://www.pubnub.com/
+  - type: Documentation
+    url: https://www.pubnub.com/docs/
+  - type: Pricing
+    url: https://www.pubnub.com/pricing/
+  - type: Blog
+    url: https://www.pubnub.com/blog/
+  - type: GitHubOrganization
+    url: https://github.com/pubnub
+  - type: StatusPage
+    url: https://status.pubnub.com/
 
-  - aid: realtime:pusher
-    name: Pusher
-    description: A hosted realtime API from MessageBird offering two products — Channels (pub/sub messaging) and Beams (push notifications) — under the framing "Our hosted APIs are flexible, scalable, and easy to integrate." Pusher Channels uses a proprietary WebSocket protocol with broad SDK coverage.
-    humanURL: https://pusher.com/
-    tags:
-      - Realtime
-      - Pub Sub
-      - Channels
-      - Push Notifications
-      - Provider
-    properties:
-      - type: Portal
-        url: https://pusher.com/
-      - type: Documentation
-        url: https://pusher.com/docs/
-      - type: Pricing
-        url: https://pusher.com/channels/pricing
-      - type: GitHubOrganization
-        url: https://github.com/pusher
-      - type: StatusPage
-        url: https://status.pusher.com/
+- aid: realtime:pusher
+  name: Pusher
+  description: A hosted realtime API from MessageBird offering two products — Channels (pub/sub messaging) and Beams (push notifications) — under the framing "Our hosted APIs are flexible, scalable, and easy to integrate." Pusher Channels uses a proprietary WebSocket protocol with broad SDK coverage.
+  humanURL: https://pusher.com/
+  tags:
+  - Realtime
+  - Pub Sub
+  - Channels
+  - Push Notifications
+  - Provider
+  properties:
+  - type: Portal
+    url: https://pusher.com/
+  - type: Documentation
+    url: https://pusher.com/docs/
+  - type: Pricing
+    url: https://pusher.com/channels/pricing
+  - type: GitHubOrganization
+    url: https://github.com/pusher
+  - type: StatusPage
+    url: https://status.pusher.com/
 
-  - aid: realtime:livekit
-    name: LiveKit
-    description: An open-source WebRTC platform marketed as "The platform for voice, video, and physical AI agents." LiveKit ships an SFU media server, Agents framework for production realtime AI, server SDKs in Go/Node/Python/Ruby, and client SDKs for JavaScript, Swift, Android, and Flutter. Available self-hosted or as LiveKit Cloud.
-    humanURL: https://livekit.io/
-    tags:
-      - WebRTC
-      - Video
-      - Voice
-      - AI Agents
-      - Provider
-      - Open Source
-    properties:
-      - type: Portal
-        url: https://livekit.io/
-      - type: Documentation
-        url: https://docs.livekit.io/home/
-      - type: GitHubOrganization
-        url: https://github.com/livekit
-      - type: Pricing
-        url: https://livekit.io/pricing
+- aid: realtime:livekit
+  name: LiveKit
+  description: An open-source WebRTC platform marketed as "The platform for voice, video, and physical AI agents." LiveKit ships an SFU media server, Agents framework for production realtime AI, server SDKs in Go/Node/Python/Ruby, and client SDKs for JavaScript, Swift, Android, and Flutter. Available self-hosted or as LiveKit Cloud.
+  humanURL: https://livekit.io/
+  tags:
+  - WebRTC
+  - Video
+  - Voice
+  - AI Agents
+  - Provider
+  - Open Source
+  properties:
+  - type: Portal
+    url: https://livekit.io/
+  - type: Documentation
+    url: https://docs.livekit.io/home/
+  - type: GitHubOrganization
+    url: https://github.com/livekit
+  - type: Pricing
+    url: https://livekit.io/pricing
 
-  - aid: realtime:daily
-    name: Daily
-    description: A WebRTC video API provider offering Prebuilt embeddable video rooms, a Client SDK for custom apps, and Realtime Transport for AI Agents — the underlying infrastructure for Pipecat-deployed voice agents. Daily frames Pipecat as "a vendor-neutral open source orchestration framework for realtime voice and multimodal AI agents."
-    humanURL: https://www.daily.co/
-    tags:
-      - WebRTC
-      - Video
-      - AI Agents
-      - Provider
-    properties:
-      - type: Portal
-        url: https://www.daily.co/
-      - type: Documentation
-        url: https://docs.daily.co/
-      - type: APIReference
-        url: https://docs.daily.co/reference
-      - type: Pricing
-        url: https://www.daily.co/pricing
-      - type: GitHubOrganization
-        url: https://github.com/daily-co
+- aid: realtime:daily
+  name: Daily
+  description: A WebRTC video API provider offering Prebuilt embeddable video rooms, a Client SDK for custom apps, and Realtime Transport for AI Agents — the underlying infrastructure for Pipecat-deployed voice agents. Daily frames Pipecat as "a vendor-neutral open source orchestration framework for realtime voice and multimodal AI agents."
+  humanURL: https://www.daily.co/
+  tags:
+  - WebRTC
+  - Video
+  - AI Agents
+  - Provider
+  properties:
+  - type: Portal
+    url: https://www.daily.co/
+  - type: Documentation
+    url: https://docs.daily.co/
+  - type: APIReference
+    url: https://docs.daily.co/reference
+  - type: Pricing
+    url: https://www.daily.co/pricing
+  - type: GitHubOrganization
+    url: https://github.com/daily-co
 
-  - aid: realtime:agora
-    name: Agora.io
-    description: A realtime engagement platform offering Video Calling, Voice Calling, Signaling, Chat, and a Conversational AI Engine, framed as building "cutting-edge, voice-enabled applications by merging Agora's robust real-time audio streaming with the conversational intelligence of leading LLMs." Agora runs a global Software Defined Real-Time Network (SD-RTN).
-    humanURL: https://www.agora.io/
-    tags:
-      - Realtime
-      - Video
-      - Voice
-      - Signaling
-      - Provider
-    properties:
-      - type: Portal
-        url: https://www.agora.io/
-      - type: Documentation
-        url: https://docs.agora.io/en/
-      - type: Pricing
-        url: https://www.agora.io/en/pricing/
-      - type: GitHubOrganization
-        url: https://github.com/AgoraIO
-      - type: StatusPage
-        url: https://status.agora.io/
+- aid: realtime:agora
+  name: Agora.io
+  description: A realtime engagement platform offering Video Calling, Voice Calling, Signaling, Chat, and a Conversational AI Engine, framed as building "cutting-edge, voice-enabled applications by merging Agora's robust real-time audio streaming with the conversational intelligence of leading LLMs." Agora runs a global Software Defined Real-Time Network (SD-RTN).
+  humanURL: https://www.agora.io/
+  tags:
+  - Realtime
+  - Video
+  - Voice
+  - Signaling
+  - Provider
+  properties:
+  - type: Portal
+    url: https://www.agora.io/
+  - type: Documentation
+    url: https://docs.agora.io/en/
+  - type: Pricing
+    url: https://www.agora.io/en/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/AgoraIO
+  - type: StatusPage
+    url: https://status.agora.io/
 
-  - aid: realtime:twilio-video
-    name: Twilio Video / Live
-    description: Twilio's realtime video and live streaming products. Twilio Video provides WebRTC-based group rooms and peer rooms; Twilio Live (in select markets) layers low-latency interactive live streaming on top. Both share Twilio's identity, access tokens, and Programmable APIs.
-    humanURL: https://www.twilio.com/video
-    tags:
-      - WebRTC
-      - Video
-      - Live Streaming
-      - Provider
-    properties:
-      - type: Portal
-        url: https://www.twilio.com/video
-      - type: Documentation
-        url: https://www.twilio.com/docs/video
-      - type: APIReference
-        url: https://www.twilio.com/docs/video/api
-      - type: GitHubOrganization
-        url: https://github.com/twilio
+- aid: realtime:twilio-video
+  name: Twilio Video / Live
+  description: Twilio's realtime video and live streaming products. Twilio Video provides WebRTC-based group rooms and peer rooms; Twilio Live (in select markets) layers low-latency interactive live streaming on top. Both share Twilio's identity, access tokens, and Programmable APIs.
+  humanURL: https://www.twilio.com/video
+  tags:
+  - WebRTC
+  - Video
+  - Live Streaming
+  - Provider
+  properties:
+  - type: Portal
+    url: https://www.twilio.com/video
+  - type: Documentation
+    url: https://www.twilio.com/docs/video
+  - type: APIReference
+    url: https://www.twilio.com/docs/video/api
+  - type: GitHubOrganization
+    url: https://github.com/twilio
 
-  - aid: realtime:vonage-video
-    name: Vonage Video API
-    description: A WebRTC video API (formerly TokBox / OpenTok) for embedding live video, audio, and screen sharing into web and mobile apps. Provides session/token-based access control, multiparty rooms, broadcasting, archiving, and SIP interop.
-    humanURL: https://www.vonage.com/communications-apis/video/
-    tags:
-      - WebRTC
-      - Video
-      - OpenTok
-      - Provider
-    properties:
-      - type: Portal
-        url: https://www.vonage.com/communications-apis/video/
-      - type: Documentation
-        url: https://developer.vonage.com/en/video/overview
-      - type: GitHubOrganization
-        url: https://github.com/Vonage
+- aid: realtime:vonage-video
+  name: Vonage Video API
+  description: A WebRTC video API (formerly TokBox / OpenTok) for embedding live video, audio, and screen sharing into web and mobile apps. Provides session/token-based access control, multiparty rooms, broadcasting, archiving, and SIP interop.
+  humanURL: https://www.vonage.com/communications-apis/video/
+  tags:
+  - WebRTC
+  - Video
+  - OpenTok
+  - Provider
+  properties:
+  - type: Portal
+    url: https://www.vonage.com/communications-apis/video/
+  - type: Documentation
+    url: https://developer.vonage.com/en/video/overview
+  - type: GitHubOrganization
+    url: https://github.com/Vonage
 
-  - aid: realtime:amazon-ivs
-    name: Amazon Interactive Video Service (IVS)
-    description: AWS's low-latency interactive video service. IVS Real-Time Streaming offers WebRTC-based stages for multi-host interactivity; IVS Low-Latency Streaming offers HLS-based one-to-many delivery. IVS Chat provides a managed realtime chat service alongside the video stream.
-    humanURL: https://aws.amazon.com/ivs/
-    tags:
-      - WebRTC
-      - Video
-      - Live Streaming
-      - AWS
-      - Provider
-    properties:
-      - type: Portal
-        url: https://aws.amazon.com/ivs/
-      - type: Documentation
-        url: https://docs.aws.amazon.com/ivs/
-      - type: Pricing
-        url: https://aws.amazon.com/ivs/pricing/
+- aid: realtime:amazon-ivs
+  name: Amazon Interactive Video Service (IVS)
+  description: AWS's low-latency interactive video service. IVS Real-Time Streaming offers WebRTC-based stages for multi-host interactivity; IVS Low-Latency Streaming offers HLS-based one-to-many delivery. IVS Chat provides a managed realtime chat service alongside the video stream.
+  humanURL: https://aws.amazon.com/ivs/
+  tags:
+  - WebRTC
+  - Video
+  - Live Streaming
+  - AWS
+  - Provider
+  properties:
+  - type: Portal
+    url: https://aws.amazon.com/ivs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/ivs/
+  - type: Pricing
+    url: https://aws.amazon.com/ivs/pricing/
 
-  - aid: realtime:cloudflare-realtime
-    name: Cloudflare Realtime
-    description: Cloudflare's realtime media stack — RealtimeKit (SDKs and APIs for live video/voice), the Realtime SFU ("a powerful media server that efficiently routes video and audio"), and a managed TURN Service for WebRTC NAT traversal over UDP/TCP/TLS — running on Cloudflare's global edge network.
-    humanURL: https://developers.cloudflare.com/realtime/
-    tags:
-      - WebRTC
-      - SFU
-      - TURN
-      - Edge
-      - Provider
-    properties:
-      - type: Portal
-        url: https://developers.cloudflare.com/realtime/
-      - type: Documentation
-        url: https://developers.cloudflare.com/realtime/
-      - type: Pricing
-        url: https://www.cloudflare.com/plans/
+- aid: realtime:cloudflare-realtime
+  name: Cloudflare Realtime
+  description: Cloudflare's realtime media stack — RealtimeKit (SDKs and APIs for live video/voice), the Realtime SFU ("a powerful media server that efficiently routes video and audio"), and a managed TURN Service for WebRTC NAT traversal over UDP/TCP/TLS — running on Cloudflare's global edge network.
+  humanURL: https://developers.cloudflare.com/realtime/
+  tags:
+  - WebRTC
+  - SFU
+  - TURN
+  - Edge
+  - Provider
+  properties:
+  - type: Portal
+    url: https://developers.cloudflare.com/realtime/
+  - type: Documentation
+    url: https://developers.cloudflare.com/realtime/
+  - type: Pricing
+    url: https://www.cloudflare.com/plans/
 
   # Open-source realtime frameworks
-  - aid: realtime:socket-io
-    name: Socket.IO
-    description: A widely deployed open-source realtime engine for Node.js (with clients across JavaScript, Java, Swift, Kotlin, .NET, Python) that layers reconnection, rooms, namespaces, and binary support on top of WebSocket (with HTTP long-polling fallback). Powers chat, dashboards, and collaboration in thousands of production apps.
-    humanURL: https://socket.io/
-    tags:
-      - WebSocket
-      - Open Source
-      - Framework
-      - Node.js
-    properties:
-      - type: Portal
-        url: https://socket.io/
-      - type: Documentation
-        url: https://socket.io/docs/v4/
-      - type: GitHubOrganization
-        url: https://github.com/socketio
+- aid: realtime:socket-io
+  name: Socket.IO
+  description: A widely deployed open-source realtime engine for Node.js (with clients across JavaScript, Java, Swift, Kotlin, .NET, Python) that layers reconnection, rooms, namespaces, and binary support on top of WebSocket (with HTTP long-polling fallback). Powers chat, dashboards, and collaboration in thousands of production apps.
+  humanURL: https://socket.io/
+  tags:
+  - WebSocket
+  - Open Source
+  - Framework
+  - Node.js
+  properties:
+  - type: Portal
+    url: https://socket.io/
+  - type: Documentation
+    url: https://socket.io/docs/v4/
+  - type: GitHubOrganization
+    url: https://github.com/socketio
 
-  - aid: realtime:phoenix-channels
-    name: Phoenix Channels
-    description: The realtime layer of the Elixir Phoenix Framework — soft-realtime channels, presence, and pub/sub built on the BEAM VM. Channels carry WebSocket (or long-poll fallback) topics with broadcast/subscribe semantics; Phoenix Presence implements CRDT-based distributed presence tracking.
-    humanURL: https://hexdocs.pm/phoenix/channels.html
-    tags:
-      - Elixir
-      - Phoenix
-      - WebSocket
-      - Channels
-      - Open Source
-    properties:
-      - type: Portal
-        url: https://www.phoenixframework.org/
-      - type: Documentation
-        url: https://hexdocs.pm/phoenix/channels.html
-      - type: GitHubOrganization
-        url: https://github.com/phoenixframework
+- aid: realtime:phoenix-channels
+  name: Phoenix Channels
+  description: The realtime layer of the Elixir Phoenix Framework — soft-realtime channels, presence, and pub/sub built on the BEAM VM. Channels carry WebSocket (or long-poll fallback) topics with broadcast/subscribe semantics; Phoenix Presence implements CRDT-based distributed presence tracking.
+  humanURL: https://hexdocs.pm/phoenix/channels.html
+  tags:
+  - Elixir
+  - Phoenix
+  - WebSocket
+  - Channels
+  - Open Source
+  properties:
+  - type: Portal
+    url: https://www.phoenixframework.org/
+  - type: Documentation
+    url: https://hexdocs.pm/phoenix/channels.html
+  - type: GitHubOrganization
+    url: https://github.com/phoenixframework
 
-  - aid: realtime:centrifugo
-    name: Centrifugo
-    description: An open-source language-agnostic realtime messaging server providing WebSocket, SSE, HTTP streaming, and WebTransport transports with channel-based pub/sub, presence, history, and JWT-based access tokens. Designed to offload realtime fanout from application backends.
-    humanURL: https://centrifugal.dev/
-    tags:
-      - WebSocket
-      - Pub Sub
-      - Open Source
-      - Realtime Server
-    properties:
-      - type: Portal
-        url: https://centrifugal.dev/
-      - type: Documentation
-        url: https://centrifugal.dev/docs/getting-started/introduction
-      - type: GitHubOrganization
-        url: https://github.com/centrifugal
+- aid: realtime:centrifugo
+  name: Centrifugo
+  description: An open-source language-agnostic realtime messaging server providing WebSocket, SSE, HTTP streaming, and WebTransport transports with channel-based pub/sub, presence, history, and JWT-based access tokens. Designed to offload realtime fanout from application backends.
+  humanURL: https://centrifugal.dev/
+  tags:
+  - WebSocket
+  - Pub Sub
+  - Open Source
+  - Realtime Server
+  properties:
+  - type: Portal
+    url: https://centrifugal.dev/
+  - type: Documentation
+    url: https://centrifugal.dev/docs/getting-started/introduction
+  - type: GitHubOrganization
+    url: https://github.com/centrifugal
 
   # Push notification systems
-  - aid: realtime:onesignal
-    name: OneSignal
-    description: A multichannel customer messaging platform with Push (mobile + web), Email, SMS & RCS, and In-App Messages — framed as letting teams "set up and send mobile and web push notifications with advanced targeting and automation." Provides REST APIs, SDKs, and a hosted console.
-    humanURL: https://onesignal.com/
-    tags:
-      - Push Notifications
-      - Mobile
-      - Web Push
-      - Provider
-    properties:
-      - type: Portal
-        url: https://onesignal.com/
-      - type: Documentation
-        url: https://documentation.onesignal.com/
-      - type: APIReference
-        url: https://documentation.onesignal.com/reference
-      - type: Pricing
-        url: https://onesignal.com/pricing
-      - type: GitHubOrganization
-        url: https://github.com/OneSignal
+- aid: realtime:onesignal
+  name: OneSignal
+  description: A multichannel customer messaging platform with Push (mobile + web), Email, SMS & RCS, and In-App Messages — framed as letting teams "set up and send mobile and web push notifications with advanced targeting and automation." Provides REST APIs, SDKs, and a hosted console.
+  humanURL: https://onesignal.com/
+  tags:
+  - Push Notifications
+  - Mobile
+  - Web Push
+  - Provider
+  properties:
+  - type: Portal
+    url: https://onesignal.com/
+  - type: Documentation
+    url: https://documentation.onesignal.com/
+  - type: APIReference
+    url: https://documentation.onesignal.com/reference
+  - type: Pricing
+    url: https://onesignal.com/pricing
+  - type: GitHubOrganization
+    url: https://github.com/OneSignal
 
-  - aid: realtime:firebase-cloud-messaging
-    name: Firebase Cloud Messaging (FCM)
-    description: Google's cross-platform push notification and message delivery service for Android, iOS, and web. FCM uses HTTP v1 API for server-to-FCM message submission and a long-lived connection (XMPP-derived on Android, APNs for iOS, Web Push for browsers) for FCM-to-device delivery.
-    humanURL: https://firebase.google.com/products/cloud-messaging
-    tags:
-      - Push Notifications
-      - Mobile
-      - Google
-      - Provider
-    properties:
-      - type: Portal
-        url: https://firebase.google.com/products/cloud-messaging
-      - type: Documentation
-        url: https://firebase.google.com/docs/cloud-messaging
-      - type: APIReference
-        url: https://firebase.google.com/docs/reference/fcm/rest
+- aid: realtime:firebase-cloud-messaging
+  name: Firebase Cloud Messaging (FCM)
+  description: Google's cross-platform push notification and message delivery service for Android, iOS, and web. FCM uses HTTP v1 API for server-to-FCM message submission and a long-lived connection (XMPP-derived on Android, APNs for iOS, Web Push for browsers) for FCM-to-device delivery.
+  humanURL: https://firebase.google.com/products/cloud-messaging
+  tags:
+  - Push Notifications
+  - Mobile
+  - Google
+  - Provider
+  properties:
+  - type: Portal
+    url: https://firebase.google.com/products/cloud-messaging
+  - type: Documentation
+    url: https://firebase.google.com/docs/cloud-messaging
+  - type: APIReference
+    url: https://firebase.google.com/docs/reference/fcm/rest
 
-  - aid: realtime:apple-push-notification-service
-    name: Apple Push Notification Service (APNs)
-    description: Apple's push notification system for iOS, iPadOS, macOS, tvOS, watchOS, and visionOS. APNs uses an HTTP/2-based provider API with token-based or certificate-based authentication for server-to-Apple delivery, and a persistent device connection for Apple-to-device delivery.
-    humanURL: https://developer.apple.com/documentation/usernotifications
-    tags:
-      - Push Notifications
-      - Apple
-      - iOS
-      - HTTP/2
-      - Provider
-    properties:
-      - type: Portal
-        url: https://developer.apple.com/documentation/usernotifications
-      - type: Documentation
-        url: https://developer.apple.com/documentation/usernotifications/sending-notification-requests-to-apns
+- aid: realtime:apple-push-notification-service
+  name: Apple Push Notification Service (APNs)
+  description: Apple's push notification system for iOS, iPadOS, macOS, tvOS, watchOS, and visionOS. APNs uses an HTTP/2-based provider API with token-based or certificate-based authentication for server-to-Apple delivery, and a persistent device connection for Apple-to-device delivery.
+  humanURL: https://developer.apple.com/documentation/usernotifications
+  tags:
+  - Push Notifications
+  - Apple
+  - iOS
+  - HTTP/2
+  - Provider
+  properties:
+  - type: Portal
+    url: https://developer.apple.com/documentation/usernotifications
+  - type: Documentation
+    url: https://developer.apple.com/documentation/usernotifications/sending-notification-requests-to-apns
 
-  - aid: realtime:web-push
-    name: Web Push API
-    description: An IETF-standardized push system for the web, comprising the W3C Push API (browser-side subscription), the IETF Web Push Protocol (RFC 8030, server-to-push-service delivery), and Message Encryption for Web Push (RFC 8291). Routed via vendor push services (Mozilla autopush, Apple Push, FCM Web Push).
-    humanURL: https://www.w3.org/TR/push-api/
-    tags:
-      - Push Notifications
-      - Web
-      - Standard
-      - Browser
-    properties:
-      - type: Specification
-        url: https://www.w3.org/TR/push-api/
-      - type: Specification
-        url: https://datatracker.ietf.org/doc/html/rfc8030
-      - type: Specification
-        url: https://datatracker.ietf.org/doc/html/rfc8291
+- aid: realtime:web-push
+  name: Web Push API
+  description: An IETF-standardized push system for the web, comprising the W3C Push API (browser-side subscription), the IETF Web Push Protocol (RFC 8030, server-to-push-service delivery), and Message Encryption for Web Push (RFC 8291). Routed via vendor push services (Mozilla autopush, Apple Push, FCM Web Push).
+  humanURL: https://www.w3.org/TR/push-api/
+  tags:
+  - Push Notifications
+  - Web
+  - Standard
+  - Browser
+  properties:
+  - type: Specification
+    url: https://www.w3.org/TR/push-api/
+  - type: Specification
+    url: https://datatracker.ietf.org/doc/html/rfc8030
+  - type: Specification
+    url: https://datatracker.ietf.org/doc/html/rfc8291
 
-  - aid: realtime:pushwoosh
-    name: Pushwoosh
-    description: A customer engagement platform offering push notifications (mobile + web), in-app messaging, email, and SMS with segmentation, journeys, and a Customer Journey Builder. Uses native vendor push gateways (FCM, APNs, Web Push) under the hood.
-    humanURL: https://www.pushwoosh.com/
-    tags:
-      - Push Notifications
-      - Customer Engagement
-      - Provider
-    properties:
-      - type: Portal
-        url: https://www.pushwoosh.com/
-      - type: Documentation
-        url: https://docs.pushwoosh.com/
-      - type: GitHubOrganization
-        url: https://github.com/Pushwoosh
+- aid: realtime:pushwoosh
+  name: Pushwoosh
+  description: A customer engagement platform offering push notifications (mobile + web), in-app messaging, email, and SMS with segmentation, journeys, and a Customer Journey Builder. Uses native vendor push gateways (FCM, APNs, Web Push) under the hood.
+  humanURL: https://www.pushwoosh.com/
+  tags:
+  - Push Notifications
+  - Customer Engagement
+  - Provider
+  properties:
+  - type: Portal
+    url: https://www.pushwoosh.com/
+  - type: Documentation
+    url: https://docs.pushwoosh.com/
+  - type: GitHubOrganization
+    url: https://github.com/Pushwoosh
 
 common:
-  - type: Portal
-    url: https://github.com/api-evangelist/realtime
-  - type: GitHub
-    url: https://github.com/api-evangelist/realtime
-  - type: JSONSchema
-    url: json-schema/realtime-channel.json
-  - type: JSONSchema
-    url: json-schema/realtime-message-envelope.json
-  - type: JSONSchema
-    url: json-schema/realtime-subscription.json
-  - type: JSONSchema
-    url: json-schema/realtime-presence.json
-  - type: JSON-LD Context
-    url: json-ld/realtime-context.jsonld
-  - type: Vocabulary
-    url: vocabulary/realtime-vocabulary.yml
-  - type: Examples
-    url: examples/
+- type: Portal
+  url: https://github.com/api-evangelist/realtime
+- type: GitHub
+  url: https://github.com/api-evangelist/realtime
+- type: JSONSchema
+  url: json-schema/realtime-channel.json
+- type: JSONSchema
+  url: json-schema/realtime-message-envelope.json
+- type: JSONSchema
+  url: json-schema/realtime-subscription.json
+- type: JSONSchema
+  url: json-schema/realtime-presence.json
+- type: JSON-LD Context
+  url: json-ld/realtime-context.jsonld
+- type: Vocabulary
+  url: vocabulary/realtime-vocabulary.yml
+- type: Examples
+  url: examples/
 
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

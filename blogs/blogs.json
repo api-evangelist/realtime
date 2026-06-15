@@ -2,6 +2,20 @@
   "repo": "realtime",
   "feeds": [
     {
+      "source": "https://ably.com/blog",
+      "feed_url": "https://voltaire.ably.com/blog/rss.xml",
+      "title": "",
+      "saved": 3,
+      "method": "discovered"
+    },
+    {
+      "source": "https://www.pubnub.com/feed/blog/",
+      "feed_url": "https://www.pubnub.com/feed/blog/",
+      "title": "",
+      "saved": 3,
+      "method": "feed"
+    },
+    {
       "source": "https://ably.com/pricing",
       "feed_url": "https://ably.com/pricing",
       "title": "",
@@ -12,10 +26,10 @@
       "source": "https://www.pubnub.com/pricing/",
       "feed_url": "https://www.pubnub.com/feed/blog/",
       "title": "",
-      "saved": 4,
+      "saved": 0,
       "method": "discovered"
     }
   ],
-  "post_count": 4,
-  "fetched": "2026-06-01T23:35:02Z"
+  "post_count": 10,
+  "fetched": "2026-06-14T20:42:17Z"
 }
