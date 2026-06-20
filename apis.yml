@@ -1,7 +1,7 @@
 aid: realtime
 name: Realtime
 description: A topic catalog of realtime APIs, protocols, providers, and patterns. Realtime distinguishes itself from streaming by being interactive and typically bidirectional — channels, presence, signaling, and message envelopes flowing in both directions between clients and servers — where streaming is one-way firehose delivery. This index documents the major realtime protocols (WebSocket, Server-Sent Events, WebRTC, MQTT, CoAP, gRPC streaming, GraphQL Subscriptions), hosted realtime providers (Ably, Pusher, PubNub, LiveKit, Daily, Agora, Twilio, Vonage, Amazon IVS, Cloudflare Realtime), open-source frameworks (Socket.IO), and push notification systems (OneSignal, FCM, APNs, Web Push, Pushwoosh).
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://github.com/api-evangelist/realtime
 created: '2026-05-22'
 modified: '2026-05-22'
