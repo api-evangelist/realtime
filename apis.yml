@@ -518,7 +518,7 @@ common:
   url: json-schema/realtime-subscription.json
 - type: JSONSchema
   url: json-schema/realtime-presence.json
-- type: JSON-LD Context
+- type: JSONLDContext
   url: json-ld/realtime-context.jsonld
 - type: Vocabulary
   url: vocabulary/realtime-vocabulary.yml

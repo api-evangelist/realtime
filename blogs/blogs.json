@@ -2,17 +2,17 @@
   "repo": "realtime",
   "feeds": [
     {
-      "source": "https://ably.com/blog",
+      "source": "https://voltaire.ably.com/blog/rss.xml",
       "feed_url": "https://voltaire.ably.com/blog/rss.xml",
       "title": "",
-      "saved": 3,
-      "method": "discovered"
+      "saved": 8,
+      "method": "feed"
     },
     {
       "source": "https://www.pubnub.com/feed/blog/",
       "feed_url": "https://www.pubnub.com/feed/blog/",
       "title": "",
-      "saved": 3,
+      "saved": 1,
       "method": "feed"
     },
     {
@@ -30,6 +30,6 @@
       "method": "discovered"
     }
   ],
-  "post_count": 10,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 22,
+  "fetched": "2026-06-27T12:03:07Z"
 }
