@@ -1,0 +1,34 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: datatracker.ietf.org
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  5 20:01:07 2026 GMT
+  hsts: true
+  hsts_max_age: 3600
+- host: html.spec.whatwg.org
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Aug 23 02:20:30 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: webrtc.org
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 14 08:35:22 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+domains:
+- domain: ietf.org
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+- domain: whatwg.org
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false

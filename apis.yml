@@ -506,6 +506,8 @@ apis:
     url: https://github.com/Pushwoosh
 
 common:
+- type: DomainSecurity
+  url: security/realtime-domain-security.yml
 - type: Portal
   url: https://github.com/api-evangelist/realtime
 - type: GitHub
