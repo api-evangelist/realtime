@@ -5,14 +5,14 @@
       "source": "https://voltaire.ably.com/blog/rss.xml",
       "feed_url": "https://voltaire.ably.com/blog/rss.xml",
       "title": "",
-      "saved": 8,
+      "saved": 0,
       "method": "feed"
     },
     {
       "source": "https://www.pubnub.com/feed/blog/",
       "feed_url": "https://www.pubnub.com/feed/blog/",
       "title": "",
-      "saved": 1,
+      "saved": 0,
       "method": "feed"
     },
     {
@@ -30,6 +30,6 @@
       "method": "discovered"
     }
   ],
-  "post_count": 22,
-  "fetched": "2026-06-27T12:03:07Z"
+  "post_count": 69,
+  "fetched": "2026-07-11T11:50:51Z"
 }
