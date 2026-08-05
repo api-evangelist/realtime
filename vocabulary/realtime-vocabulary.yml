@@ -111,7 +111,7 @@ concepts:
       - WebRTC
 
   - term: PubSub
-    definition: The publish/subscribe messaging pattern: publishers send to named channels without knowing subscribers; subscribers receive from channels without knowing publishers. Foundational to nearly all realtime providers.
+    definition: "The publish/subscribe messaging pattern: publishers send to named channels without knowing subscribers; subscribers receive from channels without knowing publishers. Foundational to nearly all realtime providers."
     relatedTerms:
       - Channel
       - Publish
