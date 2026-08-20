@@ -19,6 +19,17 @@ modified: '2026-05-22'
 specificationVersion: '0.23'
 type: Index
 tags:
+- Real-Time
+- WebSocket
+- WebRTC
+- Server-Sent Events
+- MQTT
+- Push Notifications
+- Pub-Sub
+- Presence
+- Signaling
+- Topic
+tags_raw:
 - Realtime
 - WebSocket
 - WebRTC
@@ -92,6 +103,12 @@ apis:
   tags:
   - MQTT
   - IoT
+  - Pub-Sub
+  - Protocol
+  - Standard
+  tags_raw:
+  - MQTT
+  - IoT
   - Pub Sub
   - Protocol
   - Standard
@@ -139,6 +156,11 @@ apis:
   humanURL: https://spec.graphql.org/October2021/#sec-Subscription
   tags:
   - GraphQL
+  - Subscription
+  - Real-Time
+  - WebSocket
+  tags_raw:
+  - GraphQL
   - Subscriptions
   - Realtime
   - WebSocket
@@ -172,6 +194,12 @@ apis:
   description: A hosted realtime platform offering Pub/Sub Channels, Chat, Spaces, LiveObjects, LiveSync, and AI Transport — built on a global edge network with low-latency multiprotocol fanout (WebSocket, MQTT, SSE, HTTP). Anchored by the documentation framing "Low-level APIs to build any realtime experience" for the Pub/Sub product.
   humanURL: https://ably.com/
   tags:
+  - Real-Time
+  - Pub-Sub
+  - Channels
+  - Chat
+  - Provider
+  tags_raw:
   - Realtime
   - Pub Sub
   - Channels
@@ -198,6 +226,12 @@ apis:
   description: A realtime platform offering Pub/Sub messaging, Presence detection, Chat SDKs, Functions (serverless), Events & Actions, Insights analytics, BizOps Workspace, Illuminate, and an Admin API. PubNub markets "Send a message via API and have it delivered anywhere in less than 30 ms" as its latency guarantee.
   humanURL: https://www.pubnub.com/
   tags:
+  - Real-Time
+  - Pub-Sub
+  - Presence
+  - Chat
+  - Provider
+  tags_raw:
   - Realtime
   - Pub Sub
   - Presence
@@ -222,6 +256,12 @@ apis:
   description: A hosted realtime API from MessageBird offering two products — Channels (pub/sub messaging) and Beams (push notifications) — under the framing "Our hosted APIs are flexible, scalable, and easy to integrate." Pusher Channels uses a proprietary WebSocket protocol with broad SDK coverage.
   humanURL: https://pusher.com/
   tags:
+  - Real-Time
+  - Pub-Sub
+  - Channels
+  - Push Notifications
+  - Provider
+  tags_raw:
   - Realtime
   - Pub Sub
   - Channels
@@ -244,6 +284,13 @@ apis:
   description: An open-source WebRTC platform marketed as "The platform for voice, video, and physical AI agents." LiveKit ships an SFU media server, Agents framework for production realtime AI, server SDKs in Go/Node/Python/Ruby, and client SDKs for JavaScript, Swift, Android, and Flutter. Available self-hosted or as LiveKit Cloud.
   humanURL: https://livekit.io/
   tags:
+  - WebRTC
+  - Video
+  - Voice
+  - AI Agents
+  - Provider
+  - Open-Source
+  tags_raw:
   - WebRTC
   - Video
   - Voice
@@ -286,6 +333,12 @@ apis:
   description: A realtime engagement platform offering Video Calling, Voice Calling, Signaling, Chat, and a Conversational AI Engine, framed as building "cutting-edge, voice-enabled applications by merging Agora's robust real-time audio streaming with the conversational intelligence of leading LLMs." Agora runs a global Software Defined Real-Time Network (SD-RTN).
   humanURL: https://www.agora.io/
   tags:
+  - Real-Time
+  - Video
+  - Voice
+  - Signaling
+  - Provider
+  tags_raw:
   - Realtime
   - Video
   - Voice
@@ -382,6 +435,11 @@ apis:
   humanURL: https://socket.io/
   tags:
   - WebSocket
+  - Open-Source
+  - Framework
+  - Node.js
+  tags_raw:
+  - WebSocket
   - Open Source
   - Framework
   - Node.js
@@ -402,6 +460,12 @@ apis:
   - Phoenix
   - WebSocket
   - Channels
+  - Open-Source
+  tags_raw:
+  - Elixir
+  - Phoenix
+  - WebSocket
+  - Channels
   - Open Source
   properties:
   - type: Portal
@@ -416,6 +480,11 @@ apis:
   description: An open-source language-agnostic realtime messaging server providing WebSocket, SSE, HTTP streaming, and WebTransport transports with channel-based pub/sub, presence, history, and JWT-based access tokens. Designed to offload realtime fanout from application backends.
   humanURL: https://centrifugal.dev/
   tags:
+  - WebSocket
+  - Pub-Sub
+  - Open-Source
+  - Realtime Server
+  tags_raw:
   - WebSocket
   - Pub Sub
   - Open Source
