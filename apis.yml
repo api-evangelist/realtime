@@ -36,7 +36,7 @@ tags:
 - Server-Sent Events
 - MQTT
 - Push Notifications
-- Pub Sub
+- Pub-Sub
 - Presence
 - Signaling
 - Topic
@@ -114,7 +114,7 @@ apis:
   tags:
   - MQTT
   - IoT
-  - Pub Sub
+  - Pub-Sub
   - Protocol
   - Standard
   tags_raw:
@@ -206,7 +206,7 @@ apis:
   humanURL: https://ably.com/
   tags:
   - Real-Time
-  - Pub Sub
+  - Pub-Sub
   - Channels
   - Chat
   - Provider
@@ -238,7 +238,7 @@ apis:
   humanURL: https://www.pubnub.com/
   tags:
   - Real-Time
-  - Pub Sub
+  - Pub-Sub
   - Presence
   - Chat
   - Provider
@@ -268,7 +268,7 @@ apis:
   humanURL: https://pusher.com/
   tags:
   - Real-Time
-  - Pub Sub
+  - Pub-Sub
   - Channels
   - Push Notifications
   - Provider
@@ -492,7 +492,7 @@ apis:
   humanURL: https://centrifugal.dev/
   tags:
   - WebSocket
-  - Pub Sub
+  - Pub-Sub
   - Open-Source
   - Realtime Server
   tags_raw:
