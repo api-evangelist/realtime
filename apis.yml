@@ -61,6 +61,11 @@ apis:
   - WebSocket
   - Protocol
   - Bidirectional
+  - Standards
+  tags_raw:
+  - WebSocket
+  - Protocol
+  - Bidirectional
   - Standard
   properties:
   - type: Specification
@@ -80,6 +85,12 @@ apis:
   - Server-Sent Events
   - Protocol
   - Unidirectional
+  - Standards
+  tags_raw:
+  - SSE
+  - Server-Sent Events
+  - Protocol
+  - Unidirectional
   - Standard
   properties:
   - type: Specification
@@ -92,6 +103,14 @@ apis:
   description: A peer-to-peer realtime communication framework for audio, video, and arbitrary data channels, standardized by the W3C and IETF. WebRTC defines an SDP-based offer/answer signaling model, ICE/STUN/TURN for NAT traversal, SRTP for media, and SCTP-based data channels. It powers video conferencing (LiveKit, Daily, Agora, Twilio Video, Zoom Web), live audio rooms, and low-latency game streaming.
   humanURL: https://webrtc.org/
   tags:
+  - WebRTC
+  - Peer-to-Peer
+  - Video
+  - Audio
+  - Data Channel
+  - Protocol
+  - Standards
+  tags_raw:
   - WebRTC
   - Peer-to-Peer
   - Video
@@ -116,7 +135,7 @@ apis:
   - IoT
   - Pub-Sub
   - Protocol
-  - Standard
+  - Standards
   tags_raw:
   - MQTT
   - IoT
@@ -134,6 +153,12 @@ apis:
   description: The Constrained Application Protocol, defined in IETF RFC 7252, is a RESTful protocol for constrained devices over UDP, with an Observe extension (RFC 7641) that provides realtime resource notification. CoAP is used in industrial IoT and LPWAN deployments where MQTT's TCP overhead is undesirable.
   humanURL: https://datatracker.ietf.org/doc/html/rfc7252
   tags:
+  - CoAP
+  - IoT
+  - Constrained Devices
+  - Protocol
+  - Standards
+  tags_raw:
   - CoAP
   - IoT
   - Constrained Devices
@@ -192,6 +217,12 @@ apis:
   - HTTP/3
   - QUIC
   - Browser
+  - Standards
+  tags_raw:
+  - WebTransport
+  - HTTP/3
+  - QUIC
+  - Browser
   - Standard
   properties:
   - type: Specification
@@ -209,7 +240,7 @@ apis:
   - Pub-Sub
   - Channels
   - Chat
-  - Provider
+  - Providers
   tags_raw:
   - Realtime
   - Pub Sub
@@ -241,7 +272,7 @@ apis:
   - Pub-Sub
   - Presence
   - Chat
-  - Provider
+  - Providers
   tags_raw:
   - Realtime
   - Pub Sub
@@ -271,7 +302,7 @@ apis:
   - Pub-Sub
   - Channels
   - Push Notifications
-  - Provider
+  - Providers
   tags_raw:
   - Realtime
   - Pub Sub
@@ -299,7 +330,7 @@ apis:
   - Video
   - Voice
   - AI Agents
-  - Provider
+  - Providers
   - Open-Source
   tags_raw:
   - WebRTC
@@ -326,6 +357,11 @@ apis:
   - WebRTC
   - Video
   - AI Agents
+  - Providers
+  tags_raw:
+  - WebRTC
+  - Video
+  - AI Agents
   - Provider
   properties:
   - type: Portal
@@ -348,7 +384,7 @@ apis:
   - Video
   - Voice
   - Signaling
-  - Provider
+  - Providers
   tags_raw:
   - Realtime
   - Video
@@ -375,6 +411,11 @@ apis:
   - WebRTC
   - Video
   - Live Streaming
+  - Providers
+  tags_raw:
+  - WebRTC
+  - Video
+  - Live Streaming
   - Provider
   properties:
   - type: Portal
@@ -391,6 +432,11 @@ apis:
   description: A WebRTC video API (formerly TokBox / OpenTok) for embedding live video, audio, and screen sharing into web and mobile apps. Provides session/token-based access control, multiparty rooms, broadcasting, archiving, and SIP interop.
   humanURL: https://www.vonage.com/communications-apis/video/
   tags:
+  - WebRTC
+  - Video
+  - OpenTok
+  - Providers
+  tags_raw:
   - WebRTC
   - Video
   - OpenTok
@@ -412,6 +458,12 @@ apis:
   - Video
   - Live Streaming
   - AWS
+  - Providers
+  tags_raw:
+  - WebRTC
+  - Video
+  - Live Streaming
+  - AWS
   - Provider
   properties:
   - type: Portal
@@ -426,6 +478,12 @@ apis:
   description: Cloudflare's realtime media stack — RealtimeKit (SDKs and APIs for live video/voice), the Realtime SFU ("a powerful media server that efficiently routes video and audio"), and a managed TURN Service for WebRTC NAT traversal over UDP/TCP/TLS — running on Cloudflare's global edge network.
   humanURL: https://developers.cloudflare.com/realtime/
   tags:
+  - WebRTC
+  - SFU
+  - TURN
+  - Edge
+  - Providers
+  tags_raw:
   - WebRTC
   - SFU
   - TURN
@@ -517,6 +575,11 @@ apis:
   - Push Notifications
   - Mobile
   - Web Push
+  - Providers
+  tags_raw:
+  - Push Notifications
+  - Mobile
+  - Web Push
   - Provider
   properties:
   - type: Portal
@@ -538,6 +601,11 @@ apis:
   - Push Notifications
   - Mobile
   - Google
+  - Providers
+  tags_raw:
+  - Push Notifications
+  - Mobile
+  - Google
   - Provider
   properties:
   - type: Portal
@@ -556,6 +624,12 @@ apis:
   - Apple
   - iOS
   - HTTP/2
+  - Providers
+  tags_raw:
+  - Push Notifications
+  - Apple
+  - iOS
+  - HTTP/2
   - Provider
   properties:
   - type: Portal
@@ -568,6 +642,11 @@ apis:
   description: An IETF-standardized push system for the web, comprising the W3C Push API (browser-side subscription), the IETF Web Push Protocol (RFC 8030, server-to-push-service delivery), and Message Encryption for Web Push (RFC 8291). Routed via vendor push services (Mozilla autopush, Apple Push, FCM Web Push).
   humanURL: https://www.w3.org/TR/push-api/
   tags:
+  - Push Notifications
+  - Web
+  - Standards
+  - Browser
+  tags_raw:
   - Push Notifications
   - Web
   - Standard
@@ -585,6 +664,10 @@ apis:
   description: A customer engagement platform offering push notifications (mobile + web), in-app messaging, email, and SMS with segmentation, journeys, and a Customer Journey Builder. Uses native vendor push gateways (FCM, APNs, Web Push) under the hood.
   humanURL: https://www.pushwoosh.com/
   tags:
+  - Push Notifications
+  - Customer Engagement
+  - Providers
+  tags_raw:
   - Push Notifications
   - Customer Engagement
   - Provider
