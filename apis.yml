@@ -1,16 +1,21 @@
 aid: realtime
 name: Realtime
+kind: topic
 description: A topic catalog of realtime APIs, protocols, providers, and patterns. Realtime distinguishes itself from streaming by being interactive and typically bidirectional — channels, presence, signaling, and message envelopes flowing in both directions between clients and servers — where streaming is one-way firehose delivery. This index documents the major realtime protocols (WebSocket, Server-Sent Events, WebRTC, MQTT, CoAP, gRPC streaming, GraphQL Subscriptions), hosted realtime providers (Ably, Pusher, PubNub, LiveKit, Daily, Agora, Twilio, Vonage, Amazon IVS, Cloudflare Realtime), open-source frameworks (Socket.IO), and push notification systems (OneSignal, FCM, APNs, Web Push, Pushwoosh).
 deliveryModel:
   model: saas
-  open_source: false
+  license_evidence:
+    not_product:
+    - api-evangelist/realtime
+  open_source: unknown
   commercial: true
   callable_host: false
   label: Hosted service · you call their endpoint
-  confidence: medium
+  confidence: low
   source:
   - pricing
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -331,7 +336,7 @@ apis:
   - Voice
   - AI Agents
   - Providers
-  - Open-Source
+  - Open Source
   tags_raw:
   - WebRTC
   - Video
@@ -339,6 +344,7 @@ apis:
   - AI Agents
   - Provider
   - Open Source
+  - Open-Source
   properties:
   - type: Portal
     url: https://livekit.io/
@@ -504,7 +510,7 @@ apis:
   humanURL: https://socket.io/
   tags:
   - WebSocket
-  - Open-Source
+  - Open Source
   - Framework
   - Node.js
   tags_raw:
@@ -512,6 +518,7 @@ apis:
   - Open Source
   - Framework
   - Node.js
+  - Open-Source
   properties:
   - type: Portal
     url: https://socket.io/
@@ -529,13 +536,14 @@ apis:
   - Phoenix
   - WebSocket
   - Channels
-  - Open-Source
+  - Open Source
   tags_raw:
   - Elixir
   - Phoenix
   - WebSocket
   - Channels
   - Open Source
+  - Open-Source
   properties:
   - type: Portal
     url: https://www.phoenixframework.org/
@@ -551,13 +559,14 @@ apis:
   tags:
   - WebSocket
   - Pub-Sub
-  - Open-Source
+  - Open Source
   - Realtime Server
   tags_raw:
   - WebSocket
   - Pub Sub
   - Open Source
   - Realtime Server
+  - Open-Source
   properties:
   - type: Portal
     url: https://centrifugal.dev/

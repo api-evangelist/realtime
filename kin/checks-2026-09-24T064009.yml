@@ -2,8 +2,8 @@
 kin_checks:
   slug: realtime
   schema_version: 0.22.0
-  scored_at: '2026-09-21'
-  run_ts: 2026-09-21T233935
+  scored_at: '2026-09-24'
+  run_ts: 2026-09-24T064009
   note: Actionable checks (missed + partial) in `checks`, plus the ids that did not
     apply in `na`. Everything else in rubric/scoring-0.22.0.yml was earned; counts
     below let you verify that.
